@@ -10,7 +10,6 @@ namespace Resturant.DbTables
         public string CommentText { get; set; }
 
         public int FoodId { get; set; }
+        public Foods Food { get; set;}
     }
-}/////////////////////////////
-/////1234567890-
-///
+}

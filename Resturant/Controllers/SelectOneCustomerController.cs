@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Resturant.DbTables;
 
 namespace Resturant.Controllers
 {
@@ -7,11 +8,6 @@ namespace Resturant.Controllers
     public class SelectOneCustomerController : Controller
     {
 
-        [HttpPost]
-        public object SelectOneCustomerr(Customers model)
-        {
-            return new Customers();
-        }
 
     }
 }

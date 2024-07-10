@@ -6,7 +6,7 @@ namespace Resturant.DbTables
     {
 
         [Key]
-        public int Id { get; set; }
+        public long MyId { get; set; }
 
         public string FName { get; set; }
 
@@ -17,5 +17,7 @@ namespace Resturant.DbTables
         public string Address { get; set; }
 
         public int CodeEshterak { get; set; }
+
+
     }
 }

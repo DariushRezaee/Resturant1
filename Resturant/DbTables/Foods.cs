@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Resturant
+namespace Resturant.DbTables
 {
     public class Foods
     {
