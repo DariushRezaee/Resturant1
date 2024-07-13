@@ -12,7 +12,7 @@ namespace Resturant.DbTables
 
         public string LName { get; set; }
 
-        public int PhoneNubmber { get; set; }
+        public string PhoneNubmber { get; set; }
 
         public string Address { get; set; }
 
