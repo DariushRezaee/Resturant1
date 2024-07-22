@@ -16,7 +16,7 @@ namespace Resturant.DbTables
 
         public string Address { get; set; }
 
-        public int CodeEshterak { get; set; }
+        public int Eshterak { get; set; }
 
 
     }

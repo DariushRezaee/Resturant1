@@ -1,27 +1,50 @@
-﻿using Resturant.ResultModels;
+﻿using Resturant.Db;
+using Resturant.Repository;
+using Resturant.ResultModels;
 
 namespace Resturant.CustomerServices
 {
-    public class CustomerService
+    public class CustomerService : ICustomerService
     {
-        internal static CustomerResultModel AddNewCustomer()
+        ICustomerRepo _customerRepo;
+
+        public CustomerService(ICustomerRepo customerRepo)
         {
-            throw new NotImplementedException();
+            _customerRepo = customerRepo;
+        }
+    
+
+        public bool AddNewCustomer(AddNewCustomerInputModel model)
+        {
+            return _customerRepo.AddNewCustomer(model);
         }
 
-        internal static CustomerResultModel GetAllCustomer()
+        public List<CustomerResultModel> GetAllCustomers()
         {
-            throw new NotImplementedException();
+            return _customerRepo.GetAllCustomers();
         }
 
-        internal static CustomerResultModel GetOneCustomerData()
+        public CustomerResultModel GetOneCustomerData(long MyCustomerId)
         {
-            throw new NotImplementedException();
+            return _customerRepo.GetOneCustomerData(MyCustomerId);
         }
 
-        internal static CustomerResultModel UpdateOneCustomer()
+        public bool UpdateOneCustomer(OpdateOneCustomerInputModel model)
         {
-            throw new NotImplementedException();
+            if (model.MyId == null ||
+               model.FName == null ||
+               model.LName == null ||
+               model.Address == null ||
+               model.Eshterak == null ||
+               model.PhoneNubmber == null)
+            {
+                return false;
+            }
+            var a = _customerRepo.UpdateOneCustomer( model);
+            return a;
+               
         }
+
+          
     }
 }

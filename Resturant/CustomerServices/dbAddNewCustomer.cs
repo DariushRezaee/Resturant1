@@ -1,9 +1,7 @@
-﻿namespace Resturant.ResultModels
+﻿namespace Resturant.dbInputModel.customersModel
 {
-    public class AddNewCustomerInputModel
+    public class dbAddNewCustomer
     {
-        public long Id { get; set; }
-
         public string FName { get; set; }
 
         public string LName { get; set; }
@@ -12,6 +10,7 @@
 
         public string Address { get; set; }
 
-        public int Eshterak { get; set; }
+        public int CodeEshterak { get; set; }
+        
     }
 }

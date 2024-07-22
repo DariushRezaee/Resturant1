@@ -1,40 +1,47 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Resturant.CustomerServices;
 using Resturant.DbTables;
+using Resturant.Repository;
 using Resturant.ResultModels;
 
 namespace Resturant.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class CustomerController : Controller
+    public class CustomerController : ControllerBase
     {
+        ICustomerService _customerService;
+
+        public CustomerController(ICustomerService customerService)
+        {
+            _customerService = customerService;
+        }
         [HttpGet]
         [Route("getAllCustomers")]
-        public CustomerResultModel GetAllCustomers()
+        public List<CustomerResultModel> GetAllCustomers()
         {
-            return CustomerService.GetAllCustomer();
+            return _customerService.GetAllCustomers();
         }
 
         [HttpGet]
         [Route("getOneCustomerData")]
         public CustomerResultModel GetOneCustomerData(long MyCustomerId)
         {
-            return CustomerService.GetOneCustomerData();
+            return _customerService.GetOneCustomerData(MyCustomerId);
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("AddOneCustomers")]
-        public CustomerResultModel AddNewCustomer(AddNewCustomerInputModel model)
+        public bool AddNewCustomer(AddNewCustomerInputModel model)
         {
-            return CustomerService.AddNewCustomer();
+            return _customerService.AddNewCustomer(model);
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("UpdateOneCustomers")]
-        public CustomerResultModel UpdateOneCustomer(OpdateOneCustomerInputModel model)
+        public bool UpdateOneCustomer( OpdateOneCustomerInputModel model)
         {
-            return CustomerService.UpdateOneCustomer();
+            return _customerService.UpdateOneCustomer( model);
         }
 
 
